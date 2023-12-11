@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -67,6 +66,11 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other Functions
+    public void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
     public void Run(Vector2 rawMovementInput)
     {
         Flip(rawMovementInput.x);
