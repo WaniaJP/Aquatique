@@ -53,6 +53,14 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            SavePlayer();
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            LoadPlayer();
+        }
     }
 
     private void FixedUpdate()
@@ -88,6 +96,22 @@ public class Player : MonoBehaviour
             this.gameObject.transform.eulerAngles = new Vector3(0f, 180f, 0f);
         else if (xInput > 0)
             this.gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerDataSave dataSave = SaveSystem.LoadPlayer();
+
+        Vector2 position;
+        position.x = dataSave.position[0];
+        position.y = dataSave.position[1];
+
+        transform.position = position;
     }
     #endregion
 }
