@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDataPersistence
 {
     #region State Variables
     public PlayerStateMachine StateMachine { get; private set; }
@@ -53,14 +53,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            SavePlayer();
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            LoadPlayer();
-        }
     }
 
     private void FixedUpdate()
@@ -98,20 +90,15 @@ public class Player : MonoBehaviour
             this.gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
     }
 
-    public void SavePlayer()
+    public void LoadData(GameData data)
     {
-        SaveSystem.SavePlayer(this);
+        this.transform.position = data.playerPosition;
     }
 
-    public void LoadPlayer()
+    public void SaveData(GameData data)
     {
-        PlayerDataSave dataSave = SaveSystem.LoadPlayer();
-
-        Vector2 position;
-        position.x = dataSave.position[0];
-        position.y = dataSave.position[1];
-
-        transform.position = position;
+        Debug.Log("data null ? : " + data == null);
+        data.playerPosition = this.gameObject.transform.position;
     }
     #endregion
 }
