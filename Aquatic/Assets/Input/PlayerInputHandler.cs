@@ -6,14 +6,14 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerInput playerInput;
     bool controlSwitched = false;
     public Rigidbody2D RB { get; private set; }
-
-
     public Vector2 RawMovementInput { get; private set; }
+    public bool water { get; private set; }
 
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         RB = GetComponent<Rigidbody2D>();
+        water = true;
     }
 
     private void Update()
@@ -25,6 +25,7 @@ public class PlayerInputHandler : MonoBehaviour
                 playerInput.actions.FindActionMap("Water").Disable();
                 controlSwitched = false;
                 RB.gravityScale = 1.0f;
+                water = false;
             }
             else
             {
@@ -32,6 +33,7 @@ public class PlayerInputHandler : MonoBehaviour
                 playerInput.actions.FindActionMap("Land").Disable();
                 controlSwitched = true;
                 RB.gravityScale = 0f;
+                water = true;
             }
         }
     }

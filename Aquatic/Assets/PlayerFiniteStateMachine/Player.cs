@@ -70,18 +70,13 @@ public class Player : MonoBehaviour
     public void Run(Vector2 rawMovementInput)
     {
         Flip(rawMovementInput.x);
+        Vector2 velocity = RB.velocity;
+        velocity.x = rawMovementInput.x;
 
-        //if Water
+        if (InputHandler.water)
+            velocity.y = rawMovementInput.y;
 
-
-        //if Land
-
-
-        Vector2 vector2 = RB.velocity;
-        vector2.x = rawMovementInput.x;
-        if (rawMovementInput.y != 0)
-            vector2.y = rawMovementInput.y;
-        RB.velocity = vector2;
+        RB.velocity = velocity;
     }
 
     public void SetVelocity(float velocityX, float velocityY)
