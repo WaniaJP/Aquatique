@@ -59,18 +59,18 @@ public class FileDataHandler
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
 
-            string dataToSore = JsonUtility.ToJson(data, true);
+            string dataToStore = JsonUtility.ToJson(data, true);
 
             if(useEncryption)
             {
-                dataToSore = EncryptDecrypt(dataToSore);
+                dataToStore = EncryptDecrypt(dataToStore);
             }
 
             using(FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
                 using(StreamWriter writer = new StreamWriter(stream))
                 {
-                    writer.Write(dataToSore);
+                    writer.Write(dataToStore);
                 }
             }
         }

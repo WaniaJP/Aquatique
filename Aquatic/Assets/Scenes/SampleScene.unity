@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7813a9127a7c09947bc7b79a0fb86e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: save.game
+  fileName: game.save
   useEncryption: 0
 --- !u!1 &519420028
 GameObject:

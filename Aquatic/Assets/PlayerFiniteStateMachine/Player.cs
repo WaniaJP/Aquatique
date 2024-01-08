@@ -97,7 +97,6 @@ public class Player : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        Debug.Log("data null ? : " + data == null);
         data.playerPosition = this.gameObject.transform.position;
     }
     #endregion
