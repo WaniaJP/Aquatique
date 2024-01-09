@@ -11,7 +11,12 @@ public class Object : MonoBehaviour, Iinteraction, IDataPersistence
     }
 
     private bool isActive = true;
-    private Vector3 position;
+    private Inventory inventory;
+
+    private void Start()
+    {
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +30,17 @@ public class Object : MonoBehaviour, Iinteraction, IDataPersistence
         //Destroy(gameObject);
         gameObject.SetActive(false);
         isActive = false;
+
+        for (int i = 0; i <= inventory.slots.Length; i++)
+        {
+            if (inventory.slots[i] == false)
+            {
+                // Item can be picked up
+                inventory.isFull[i] = true;
+                break;
+
+            }
+        }
     }
 
     public void LoadData(GameData data)
