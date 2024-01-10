@@ -103,12 +103,12 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         return null;
     }
 
-    /*public void LoadData(GameData gameData)
+    public void LoadData(GameData gameData)
     {
         throw new System.NotImplementedException();
-    }*/
+    }
 
-    public void LoadData(GameData data)
+    /*public void LoadData(GameData data)
     {
         if (data.objectActive.TryGetValue(id, out bool loadedIsActive))
         {
@@ -146,7 +146,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
                 }
             }
         }
-    }
+    }*/
 
     public void SaveData(GameData data)
     {
