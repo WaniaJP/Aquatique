@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using static Item;
 using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour, IDataPersistence
@@ -9,6 +12,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public int maxStackedItems = 4;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemprefab;
+    public DemoScript demoScript;
 
     int selectedSlot = -1;
 
@@ -103,54 +107,44 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         return null;
     }
 
-    public void LoadData(GameData gameData)
+    public void LoadData(GameData data)
     {
-        throw new System.NotImplementedException();
-    }
-
-    /*public void LoadData(GameData data)
-    {
-        if (data.objectActive.TryGetValue(id, out bool loadedIsActive))
+        demoScript = FindObjectOfType<DemoScript>();
+        if (demoScript != null && data.objectPossessedId.Count()>0)
         {
-            isActive = loadedIsActive;
-
-            Debug.Log("isActive après le load = " + isActive);
-
-            if (isActive)
-            {
-                //gameObject.SetActive(true);
-            }
-            else
-            {
-                //gameObject.SetActive(false);
-            }
-        }
-
-        foreach (string itemId in data.objectPossessed.Keys)
-        {
-            for (int i = 0; i < inventorySlots.Length; i++)
+            for(int i = 0; i < inventorySlots.Length; i++)
             {
                 InventorySlot slot = inventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
                 if (itemInSlot != null)
                 {
-                    string itemId = itemInSlot.id;
-                    int itemCount = itemInSlot.count;
+                    Destroy(itemInSlot.gameObject);
+                }
 
-                    if (data.objectPossessed.ContainsKey(itemId))
+                if(i < data.objectPossessedId.Count())
+                {
+                    int idValue = data.objectPossessedId[i];
+                    Item item = demoScript.itemsToPickup[idValue];
+
+                    for (int j = 0; j < demoScript.itemsToPickup.Length; j++)
                     {
-                        data.objectPossessed.Remove(itemId);
+                        if (item == demoScript.itemsToPickup[j])
+                        {
+                            SpawnNewItem(item, slot);
+                        }
                     }
-                    Debug.Log("itemCount lors de la save = " + itemCount);
-                    data.objectPossessed.Add(itemId, itemCount);
                 }
             }
         }
-    }*/
+        else
+        {
+            Debug.LogError("Il n'existe aucun objet avec le type DemoScript OU il n'y a pas de sauvegarde existante");
+        }
+    }
 
     public void SaveData(GameData data)
     {
-        data.objectPossessed.Clear();
+        data.objectPossessedId.Clear();
 
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -158,15 +152,29 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null)
             {
-                string itemId = itemInSlot.id;
-                int itemCount = itemInSlot.count;
-
-                if (data.objectPossessed.ContainsKey(itemId))
+                Item item = itemInSlot.item;
+                int itemId = -1;
+                for (int j = 0; j < demoScript.itemsToPickup.Length; j++)
                 {
-                    data.objectPossessed.Remove(itemId);
+                    if (item == demoScript.itemsToPickup[j])
+                    {
+                        itemId = j;
+                    }
                 }
-                Debug.Log("itemCount lors de la save = " + itemCount);
-                data.objectPossessed.Add(itemId, itemCount);
+               
+                if(itemId != -1)
+                {
+                    if (data.objectPossessedId.Contains(itemId))
+                    {
+                        data.objectPossessedId.Remove(itemId);
+                    }
+                    data.objectPossessedId.Add(itemId);
+                }
+                else
+                {
+                    Debug.LogError("Item non existant");
+                }
+
             }
         }
     }

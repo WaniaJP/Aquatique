@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa43d39cd76c56448afe1d73cd6a8821, type: 3}
-  m_Name: Wearable Item
+  m_Name: Gems_Holder (Empty)
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
   type: 0
   actionType: 0
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 21300000, guid: 970324311431c794ca338446ea889948, type: 3}
-  id: 0bf8dc2f-7737-470d-8887-a731fa09693b
+  image: {fileID: 21300000, guid: 2816a8a8f0f47a841b1b85f8e8f5b379, type: 3}

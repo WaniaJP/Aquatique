@@ -29,15 +29,6 @@ public class Item : ScriptableObject, Iinteraction
         Use
     }
 
-    
-    //private bool isActive = false;
-    /*[SerializeField] private string id;
-    [ContextMenu("Generate Guid for id")]
-    private void GenerateGuid()
-    {
-        id = System.Guid.NewGuid().ToString();
-    }*/
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -48,7 +39,6 @@ public class Item : ScriptableObject, Iinteraction
     public void Action()
     {
         //Destroy(gameObject);
-        //gameObject.SetActive(false);
     }
 
 }

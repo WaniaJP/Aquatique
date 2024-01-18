@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] public string id;
-
     [Header("UI")]
     public Image image;
     public Text countText;
@@ -19,7 +17,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void InitialiseItem(Item newItem)
     {
         item = newItem;
-        id = System.Guid.NewGuid().ToString();
         image.sprite = newItem.image;
         RefreshCount();
     }

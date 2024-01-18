@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa43d39cd76c56448afe1d73cd6a8821, type: 3}
-  m_Name: Consummable Item
+  m_Name: Carte
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
-  tye: 1
+  type: 0
   actionType: 0
   range: {x: 5, y: 4}
-  stackable: 1
-  image: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
-  id: 74662f0d-9b87-46ee-a89a-c7eeb24c56f0
+  stackable: 0
+  image: {fileID: 21300000, guid: ae496f5dad56ea645b72d374a0376368, type: 3}
