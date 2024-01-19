@@ -3,14 +3,18 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    private Player player;
     private PlayerInput playerInput;
     bool controlSwitched = false;
     public Rigidbody2D RB { get; private set; }
     public Vector2 RawMovementInput { get; private set; }
     public bool water { get; private set; }
+    public bool isRunning { get; private set; }
+    public bool isJumping { get; private set; }
 
     private void Start()
     {
+        player = GetComponent<Player>();
         playerInput = GetComponent<PlayerInput>();
         RB = GetComponent<Rigidbody2D>();
         water = true;
@@ -34,6 +38,8 @@ public class PlayerInputHandler : MonoBehaviour
                 controlSwitched = true;
                 RB.gravityScale = 0f;
                 water = true;
+                if (player.isCrouch)
+                    player.Crouch();
             }
         }
     }
@@ -41,5 +47,18 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
+    }
+    public void OnRunInput(InputAction.CallbackContext context)
+    {
+        isRunning = context.ReadValueAsButton();
+    }
+    public void OnJumpInput(InputAction.CallbackContext context)
+    {
+        player.Jump();
+    }
+
+    public void OnCrouchInput(InputAction.CallbackContext context)
+    {
+        player.Crouch();
     }
 }
