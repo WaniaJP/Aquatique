@@ -31,6 +31,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Material basicMaterial;
 
+    public bool IsFacingRight { get; private set; }
+
+    [SerializeField]
+    private GameObject _cameraFollowGo;
+    ///private CameraFollowObject _cameraFollowObject;
     #endregion
 
     #region Unity Callback Functions
@@ -39,8 +44,8 @@ public class Player : MonoBehaviour
         //Core = GetComponentInChildren<Core>();
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         StateMachine = new PlayerStateMachine();
-        IdleState = new PlayerIdleState(this, StateMachine, "idle");
-        MoveState = new PlayerMoveState(this, StateMachine, "move");
+        IdleState = new PlayerIdleState(this, StateMachine, "wIdle");
+        MoveState = new PlayerMoveState(this, StateMachine, "wMove");
     }
 
     private void Start()
@@ -49,6 +54,8 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         StateMachine.Initialize(IdleState);
+
+        //_cameraFollowObject = _cameraFollowGo.GetComponent<CameraFollowObject>();
     }
 
     private void Update()
@@ -69,21 +76,35 @@ public class Player : MonoBehaviour
     #region Other Functions
     public void Run(Vector2 rawMovementInput)
     {
+
         Flip(rawMovementInput.x);
+
         RB.velocity = playerData.movementVelocity * rawMovementInput;
+
+        
+
+
     }
 
     public void SetVelocity(float velocityX, float velocityY)
     {
         RB.velocity.Set(velocityX, velocityY);
+
     }
-    
+
     public void Flip(float xInput)
     {
         if (xInput < 0)
+        {
             this.gameObject.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            IsFacingRight = false;
+
+        }
         else if (xInput > 0)
+        {
             this.gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            IsFacingRight = true;
+        }
     }
     #endregion
 }
