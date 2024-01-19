@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a8f9f629a579234438d9de2827f3270b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - inventoryItemprefab: {fileID: 7353289640621603280, guid: 447047b8172727349b3e26a255264275, type: 3}
+  - demoScript: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
