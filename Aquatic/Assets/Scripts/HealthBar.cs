@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Volume healthVolume;
     private Vignette healthVignette;
-    public float maxHealth, healthVignetteIntensity, maxIntensity;
+    public float health, maxHealth, healthVignetteIntensity, maxIntensity;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class HealthBar : MonoBehaviour
         maxIntensity = 0.5f;
     }
     public void setHealth (float healthValue) {
-        healthVignette.intensity.value = ((healthValue * maxIntensity) / maxHealth);
+        health = healthValue;
+        healthVignette.intensity.value = ((health * maxIntensity) / maxHealth);
     }
 }

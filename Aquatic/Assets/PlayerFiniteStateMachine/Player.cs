@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         StateMachine.Initialize(IdleState);
         healthBar.setMaxHealth(maxHealth);
-        setHealth(100);
     }
 
     private void Update()
