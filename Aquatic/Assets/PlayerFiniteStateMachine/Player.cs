@@ -15,28 +15,26 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Components
-    //public Core Core { get; private set; }
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     #endregion
 
     #region Other Variables         
-
-    private Vector2 workspace;
-
+    private int speed;
     [SerializeField]
-    private Material healingMaterial;
+    private int jumpPower = 5;
 
-    [SerializeField]
-    private Material basicMaterial;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    private bool isGrounded;
+    public bool isCrouch { get; private set; }
 
     #endregion
 
     #region Unity Callback Functions
     private void Awake()
     {
-        //Core = GetComponentInChildren<Core>();
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, "idle");
@@ -60,17 +58,47 @@ public class Player : MonoBehaviour
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }
-
-    private void OnDestroy()
-    {
-    }
     #endregion
 
     #region Other Functions
     public void Run(Vector2 rawMovementInput)
     {
         Flip(rawMovementInput.x);
-        RB.velocity = playerData.movementVelocity * rawMovementInput;
+        if (InputHandler.isRunning)
+            speed = 10;
+        else 
+            speed = 5;
+
+        Vector2 velocity = RB.velocity;
+        velocity.x = rawMovementInput.x * speed;
+
+        if (InputHandler.water)
+            velocity.y = rawMovementInput.y * speed;
+
+        RB.velocity = velocity;
+    }
+
+    public void Jump() {
+        isGrounded = Physics2D.OverlapCapsule(new Vector2(groundCheck.position.x + 0.04f, groundCheck.position.y - 1.13f),new Vector2(1.83f,1f),CapsuleDirection2D.Horizontal,0, groundLayer);
+        if (isGrounded && !isCrouch)       
+            RB.velocity = new Vector2(RB.velocity.x, jumpPower);
+    }
+    public void Crouch()
+    {
+        isGrounded = Physics2D.OverlapCapsule(new Vector2(groundCheck.position.x + 0.04f, groundCheck.position.y - 1.13f), new Vector2(1.83f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        if (isGrounded)
+        {
+            if (!isCrouch)
+            {
+                transform.localScale = new Vector3(1, 0.5f, 1);
+                isCrouch = true;
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1f, 1);
+                isCrouch = false;
+            }
+        }
     }
 
     public void SetVelocity(float velocityX, float velocityY)
