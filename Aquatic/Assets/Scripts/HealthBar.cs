@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -10,7 +7,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Volume healthVolume;
     private Vignette healthVignette;
-    public float health, maxHealth, healthVignetteIntensity, maxIntensity;
+    public float maxHealth, healthVignetteIntensity, maxIntensity;
 
     void Start()
     {
@@ -25,7 +22,6 @@ public class HealthBar : MonoBehaviour
         maxIntensity = 0.5f;
     }
     public void setHealth (float healthValue) {
-        health = healthValue;
-        healthVignette.intensity.value = ((health * maxIntensity) / maxHealth);
+        healthVignette.intensity.value = ((healthValue * maxIntensity) / maxHealth);
     }
 }

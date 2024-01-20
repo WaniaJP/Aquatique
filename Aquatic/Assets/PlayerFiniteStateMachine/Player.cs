@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-
+﻿using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region State Variables
@@ -30,6 +28,9 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     public bool isCrouch { get; private set; }
 
+    public float health, maxHealth;
+    [SerializeField]
+    private HealthBar healthBar;
     #endregion
 
     #region Unity Callback Functions
@@ -47,6 +48,8 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         StateMachine.Initialize(IdleState);
+        healthBar.setMaxHealth(maxHealth);
+        setHealth(100);
     }
 
     private void Update()
@@ -112,6 +115,13 @@ public class Player : MonoBehaviour
             this.gameObject.transform.eulerAngles = new Vector3(0f, 180f, 0f);
         else if (xInput > 0)
             this.gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+    }
+
+    public void setHealth(float healthChange)
+    {
+        health += healthChange;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        healthBar.setHealth(health);
     }
     #endregion
 }
