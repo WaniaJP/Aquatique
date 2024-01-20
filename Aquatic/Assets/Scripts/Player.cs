@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    public bool isAboveLimit;
+
+    public float speed;
+    public Rigidbody2D rb;
+    private Vector2 moveDirection;
+
     public float health, maxHealth;
 
     [SerializeField]
@@ -18,6 +25,8 @@ public class Player : MonoBehaviour
      //TESTS AUGMENTER/BAISSER LA SANTE
     void Update()
     {
+        ProcessInputs();
+
         if(Input.GetKeyDown("y")) {
             setHealth(-20f);
             
@@ -26,6 +35,21 @@ public class Player : MonoBehaviour
             setHealth(20f);
             
         }
+    }
+
+    void FixedUpdate() 
+    {
+        Move();
+    }
+
+    void ProcessInputs() {
+        float moveY = Input.GetAxisRaw("Vertical");
+        float moveX = Input.GetAxisRaw("Horizontal");
+        moveDirection = new Vector2(moveX, moveY);
+    }
+
+    void Move() {
+        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
     }
 
     public void setHealth(float healthChange) {
