@@ -25,5 +25,4 @@ public class PlayerStateMachine
         Debug.Log("Statemachine : " + PreviousState.GetType().Name + " => " + CurrentState.GetType().Name);
         CurrentState.Enter();
     }
-
 }

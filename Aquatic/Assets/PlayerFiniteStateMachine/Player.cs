@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-
 public class Player : MonoBehaviour, IDataPersistence
+
 {
     #region State Variables
     public PlayerStateMachine StateMachine { get; private set; }
@@ -14,28 +14,29 @@ public class Player : MonoBehaviour, IDataPersistence
     #endregion
 
     #region Components
-    //public Core Core { get; private set; }
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     #endregion
 
     #region Other Variables         
-
-    private Vector2 workspace;
-
+    private int speed;
     [SerializeField]
-    private Material healingMaterial;
+    private int jumpPower = 5;
 
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    private bool isGrounded;
+    public bool isCrouch { get; private set; }
+
+    public float health, maxHealth;
     [SerializeField]
-    private Material basicMaterial;
-
+    private HealthBar healthBar;
     #endregion
 
     #region Unity Callback Functions
     private void Awake()
     {
-        //Core = GetComponentInChildren<Core>();
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, "idle");
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour, IDataPersistence
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         StateMachine.Initialize(IdleState);
+        healthBar.setMaxHealth(maxHealth);
     }
 
     private void Update()
@@ -58,10 +60,6 @@ public class Player : MonoBehaviour, IDataPersistence
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
-    }
-
-    private void OnDestroy()
-    {
     }
     #endregion
 
@@ -74,7 +72,41 @@ public class Player : MonoBehaviour, IDataPersistence
     public void Run(Vector2 rawMovementInput)
     {
         Flip(rawMovementInput.x);
-        RB.velocity = playerData.movementVelocity * rawMovementInput;
+        if (InputHandler.isRunning)
+            speed = 10;
+        else 
+            speed = 5;
+
+        Vector2 velocity = RB.velocity;
+        velocity.x = rawMovementInput.x * speed;
+
+        if (InputHandler.water)
+            velocity.y = rawMovementInput.y * speed;
+
+        RB.velocity = velocity;
+    }
+
+    public void Jump() {
+        isGrounded = Physics2D.OverlapCapsule(new Vector2(groundCheck.position.x + 0.04f, groundCheck.position.y - 1.13f),new Vector2(1.83f,1f),CapsuleDirection2D.Horizontal,0, groundLayer);
+        if (isGrounded && !isCrouch)       
+            RB.velocity = new Vector2(RB.velocity.x, jumpPower);
+    }
+    public void Crouch()
+    {
+        isGrounded = Physics2D.OverlapCapsule(new Vector2(groundCheck.position.x + 0.04f, groundCheck.position.y - 1.13f), new Vector2(1.83f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        if (isGrounded)
+        {
+            if (!isCrouch)
+            {
+                transform.localScale = new Vector3(1, 0.5f, 1);
+                isCrouch = true;
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1f, 1);
+                isCrouch = false;
+            }
+        }
     }
 
     public void SetVelocity(float velocityX, float velocityY)
@@ -98,6 +130,13 @@ public class Player : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         data.playerPosition = this.gameObject.transform.position;
+    }
+    
+    public void setHealth(float healthChange)
+    {
+        health += healthChange;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        healthBar.setHealth(health);
     }
     #endregion
 }

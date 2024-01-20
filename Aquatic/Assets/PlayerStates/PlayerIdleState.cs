@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class PlayerIdleState : PlayerState {
     protected Vector2 rawMovementInput { get; private set; }
 
