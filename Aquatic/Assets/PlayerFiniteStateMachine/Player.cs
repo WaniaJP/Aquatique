@@ -29,6 +29,12 @@ public class Player : MonoBehaviour, IDataPersistence
     private bool isGrounded;
     public bool isCrouch { get; private set; }
 
+    public bool IsFacingRight { get; private set; }
+
+    [SerializeField]
+    private GameObject _cameraFollowGo;
+    ///private CameraFollowObject _cameraFollowObject;
+    
     public float health, maxHealth;
     [SerializeField]
     private HealthBar healthBar;
@@ -39,8 +45,8 @@ public class Player : MonoBehaviour, IDataPersistence
     {
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         StateMachine = new PlayerStateMachine();
-        IdleState = new PlayerIdleState(this, StateMachine, "idle");
-        MoveState = new PlayerMoveState(this, StateMachine, "move");
+        IdleState = new PlayerIdleState(this, StateMachine, "wIdle");
+        MoveState = new PlayerMoveState(this, StateMachine, "wMove");
     }
 
     private void Start()
@@ -49,6 +55,7 @@ public class Player : MonoBehaviour, IDataPersistence
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         StateMachine.Initialize(IdleState);
+        //_cameraFollowObject = _cameraFollowGo.GetComponent<CameraFollowObject>();
         healthBar.setMaxHealth(maxHealth);
     }
 
@@ -71,6 +78,7 @@ public class Player : MonoBehaviour, IDataPersistence
 
     public void Run(Vector2 rawMovementInput)
     {
+
         Flip(rawMovementInput.x);
         if (InputHandler.isRunning)
             speed = 10;
@@ -112,14 +120,22 @@ public class Player : MonoBehaviour, IDataPersistence
     public void SetVelocity(float velocityX, float velocityY)
     {
         RB.velocity.Set(velocityX, velocityY);
+
     }
-    
+
     public void Flip(float xInput)
     {
         if (xInput < 0)
+        {
             this.gameObject.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            IsFacingRight = false;
+
+        }
         else if (xInput > 0)
+        {
             this.gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            IsFacingRight = true;
+        }
     }
 
     public void LoadData(GameData data)

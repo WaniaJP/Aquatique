@@ -20,7 +20,7 @@ public class PlayerState
     public virtual void Enter()
     {
         DoChecks();
-       // player.Anim.SetBool(animBoolName, true);
+       player.Anim.SetBool(animBoolName, true);
         startTime = Time.time;
         isAnimationFinished = false;
         isExitingState = false;
@@ -28,7 +28,7 @@ public class PlayerState
 
     public virtual void Exit()
     {
-        //player.Anim.SetBool(animBoolName, false);
+        player.Anim.SetBool(animBoolName, false);
         isExitingState = true;
     }
 
