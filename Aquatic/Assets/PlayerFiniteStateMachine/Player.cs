@@ -78,12 +78,11 @@ public class Player : MonoBehaviour, IDataPersistence
 
     public void Run(Vector2 rawMovementInput)
     {
-
         Flip(rawMovementInput.x);
         if (InputHandler.isRunning)
-            speed = 10;
+            speed = 25;
         else 
-            speed = 5;
+            speed = 15;
 
         Vector2 velocity = RB.velocity;
         velocity.x = rawMovementInput.x * speed;
