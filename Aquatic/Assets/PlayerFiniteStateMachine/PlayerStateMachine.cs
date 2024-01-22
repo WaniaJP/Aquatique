@@ -22,7 +22,7 @@ public class PlayerStateMachine
         CurrentState.Exit();
         PreviousState = CurrentState;
         CurrentState = newState;
-        Debug.Log("Statemachine : " + PreviousState.GetType().Name + " => " + CurrentState.GetType().Name);
+        //Debug.Log("Statemachine : " + PreviousState.GetType().Name + " => " + CurrentState.GetType().Name);
         CurrentState.Enter();
     }
 }
