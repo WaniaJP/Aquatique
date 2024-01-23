@@ -15,7 +15,7 @@ public class Esquive : MonoBehaviour
 
     private const int ORDER_IN_LAYER_VALUE_HIDDEN = 3;
     private const int ORDER_IN_LAYER_VALUE_NOT_HIDDEN = 0;
-    [SerializeField] private Transform destination;
+    [SerializeField] public Transform destination;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class Esquive : MonoBehaviour
         
         tm = GetComponent<Tilemap>();
         tmRenderer = GetComponent<TilemapRenderer>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         
     }
 
@@ -31,21 +32,17 @@ public class Esquive : MonoBehaviour
     {
 
         // LE JOUEUR SE CACHE
-        if (!player.estCache && isNextTo && Input.GetKeyDown(KeyCode.E)) {
-            Debug.Log("Appuuie sur E, script esquive");
+        if (!player.estCache && !player.bloquerCachette && isNextTo && Input.GetKeyDown(KeyCode.E)) {
             player.seCacher(destination);
             tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0.5f);
             tmRenderer.sortingOrder = ORDER_IN_LAYER_VALUE_HIDDEN;
-            Debug.Log("Fin caché");
         }
 
         // LE JOUEUR QUITTE LA CACHETTE
-        if (player.estCache && Input.GetKeyDown(KeyCode.F)) {
-            Debug.Log("Appuuie sur F, script esquive");
+        if (player.estCache && !player.bloquerCachette && Input.GetKeyDown(KeyCode.F)) {
             player.quitterCachette();
             tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 1);
             tmRenderer.sortingOrder = ORDER_IN_LAYER_VALUE_NOT_HIDDEN;
-            Debug.Log("Fin décaché");
         }
     }
 
@@ -53,7 +50,6 @@ public class Esquive : MonoBehaviour
     {
            if(entree.CompareTag("Player")) {
             isNextTo = true;
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
            }
     }
     

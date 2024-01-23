@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Thalassin Perlefonds
+  - Pepe Pale
+  - Meme Pale
+  - Calypso Gloutentacule
+  - "N\xE9h\xE9rida Tisselune"
+  - "Silphydra Oc\xE9anara"
+  - Encreva Furtiflimb
+  - Chef Pou
+  - DialogueBox
   layers:
   - Default
   - TransparentFX

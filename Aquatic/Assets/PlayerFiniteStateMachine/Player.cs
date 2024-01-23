@@ -32,6 +32,7 @@ public class Player : MonoBehaviour, IDataPersistence
     public bool IsFacingRight { get; private set; }
 
     public bool estCache;
+    public bool bloquerCachette;
 
     [SerializeField]
     private GameObject _cameraFollowGo;
@@ -160,13 +161,11 @@ public class Player : MonoBehaviour, IDataPersistence
         transform.position = newPosition.position;
         RB.constraints = RigidbodyConstraints2D.FreezeAll;
         estCache = true;
-        Debug.Log("Fonction seCacher script Player");
     }
 
     public void quitterCachette() {
         RB.constraints = RigidbodyConstraints2D.None;
         estCache = false;
-        Debug.Log("Fonction quitterCachette script Player");
     }
 
     private Vector3 setZIndex(Vector3 vector, float z) {
