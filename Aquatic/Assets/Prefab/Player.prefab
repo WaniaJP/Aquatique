@@ -218,7 +218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 97ee086e618d50c4dbefcf4cd7135726, type: 2}
-  jumpPower: 5
   groundCheck: {fileID: 3913688295418559112}
   groundLayer:
     serializedVersion: 2
@@ -289,7 +288,7 @@ Animator:
   m_GameObject: {fileID: 386302167111853047}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 263658ac6b9385c458539ca45f1ee629, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5019c30b4e21b6e4c84b234c7ab8c064, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
