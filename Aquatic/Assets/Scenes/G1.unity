@@ -704,7 +704,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 8.224997, y: 0.25219727}
+  m_Offset: {x: 7.9189568, y: -0.20686531}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -715,7 +715,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 77.0287, y: 53.647667}
+  m_Size: {x: 39.38562, y: 54.565792}
   m_EdgeRadius: 0
 --- !u!66 &155947769
 CompositeCollider2D:
@@ -756,20 +756,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 155947768}
     m_ColliderPaths:
-    - - X: 467393504
+    - - X: 276117664
         Y: 270760320
-      - X: -302893536
+      - X: -117738536
         Y: 270760320
-      - X: -302893536
-        Y: -265716368
-      - X: 467393504
-        Y: -265716368
+      - X: -117738536
+        Y: -274897600
+      - X: 276117664
+        Y: -274897600
   m_CompositePaths:
     m_Paths:
-    - - {x: 46.739323, y: -26.571636}
-      - {x: 46.739323, y: 27.076033}
-      - {x: -30.289354, y: 27.076004}
-      - {x: -30.289326, y: -26.571636}
+    - - {x: 27.611738, y: -27.48976}
+      - {x: 27.611738, y: 27.076033}
+      - {x: -11.773853, y: 27.076004}
+      - {x: -11.773824, y: -27.48976}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -1036,6 +1036,7 @@ GameObject:
   - component: {fileID: 678076078}
   - component: {fileID: 678076080}
   - component: {fileID: 678076079}
+  - component: {fileID: 678076081}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -6925,6 +6926,42 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &678076081
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678076077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &726758860
 GameObject:
   m_ObjectHideFlags: 3
@@ -7173,8 +7210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1683db726a2af564c8d10ed803713f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerName: G1-&Triton_gauche
-  levelToLoad: Triton_gauche
+  triggerName: Triton_Left&G1
+  levelToLoad: Triton_Left
   spawnPoint: {fileID: 101817504}
 --- !u!61 &1035876033
 BoxCollider2D:
@@ -7267,7 +7304,7 @@ Transform:
   m_GameObject: {fileID: 1211098266}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.051804, y: 5.5, z: 0}
+  m_LocalPosition: {x: 12.388912, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7418,7 +7455,7 @@ Camera:
   far clip plane: 1000
   field of view: 143.8
   orthographic: 1
-  orthographic size: 13.21875
+  orthographic size: 8.09375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10932,6 +10969,7 @@ GameObject:
   - component: {fileID: 2022251668}
   - component: {fileID: 2022251670}
   - component: {fileID: 2022251669}
+  - component: {fileID: 2022251671}
   m_Layer: 0
   m_Name: Deco
   m_TagString: Untagged
@@ -11159,6 +11197,42 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &2022251671
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022251667}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

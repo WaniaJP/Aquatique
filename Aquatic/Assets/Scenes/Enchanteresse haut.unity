@@ -434,7 +434,7 @@ Camera:
   far clip plane: 1000
   field of view: 143.8
   orthographic: 1
-  orthographic size: 14.6875
+  orthographic size: 8.09375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 393948269}
   - component: {fileID: 393948271}
   - component: {fileID: 393948270}
+  - component: {fileID: 393948272}
   m_Layer: 0
   m_Name: roches_gauche
   m_TagString: Untagged
@@ -8690,6 +8691,42 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &393948272
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393948268}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1001 &407140150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17879,6 +17916,7 @@ GameObject:
   - component: {fileID: 887322627}
   - component: {fileID: 887322629}
   - component: {fileID: 887322628}
+  - component: {fileID: 887322630}
   m_Layer: 0
   m_Name: roches_noires
   m_TagString: Untagged
@@ -24818,6 +24856,42 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &887322630
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887322626}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!4 &1054020908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7035282143944652585, guid: 760f415ef87d29546841ff95cf34a4e5, type: 3}
@@ -24916,7 +24990,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 8.186405, y: -0.03765297}
+  m_Offset: {x: 8.186405, y: -0.7769308}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -24927,7 +25001,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 80.429756, y: 54.80707}
+  m_Size: {x: 80.429756, y: 53.328514}
   m_EdgeRadius: 0
 --- !u!66 &1164981395
 CompositeCollider2D:
@@ -24969,9 +25043,9 @@ CompositeCollider2D:
   - m_Collider: {fileID: 1164981394}
     m_ColliderPaths:
     - - X: 484012832
-        Y: 273658816
+        Y: 258873248
       - X: -320284736
-        Y: 273658816
+        Y: 258873248
       - X: -320284736
         Y: -274411904
       - X: 484012832
@@ -24979,8 +25053,8 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths:
     - - {x: 48.401257, y: -27.44119}
-      - {x: 48.401257, y: 27.365881}
-      - {x: -32.028473, y: 27.365852}
+      - {x: 48.401257, y: 25.887325}
+      - {x: -32.028473, y: 25.887297}
       - {x: -32.028446, y: -27.44119}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
@@ -26297,6 +26371,7 @@ GameObject:
   - component: {fileID: 2073964159}
   - component: {fileID: 2073964161}
   - component: {fileID: 2073964160}
+  - component: {fileID: 2073964162}
   m_Layer: 0
   m_Name: roches_droite
   m_TagString: Untagged
@@ -33246,6 +33321,42 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &2073964162
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073964158}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &2089865690
 GameObject:
   m_ObjectHideFlags: 3
