@@ -434,7 +434,7 @@ Camera:
   far clip plane: 1000
   field of view: 143.8
   orthographic: 1
-  orthographic size: 10.46875
+  orthographic size: 12.96875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8722,6 +8722,7 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+
 --- !u!1001 &426537526
 PrefabInstance:
   m_ObjectHideFlags: 0
