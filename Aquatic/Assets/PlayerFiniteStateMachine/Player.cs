@@ -29,8 +29,6 @@ public class Player : MonoBehaviour, IDataPersistence
     private bool isGrounded;
     public bool isCrouch { get; private set; }
 
-    public bool IsFacingRight { get; private set; }
-
     [SerializeField]
     private GameObject _cameraFollowGo;
     ///private CameraFollowObject _cameraFollowObject;
@@ -38,19 +36,26 @@ public class Player : MonoBehaviour, IDataPersistence
     public float health, maxHealth;
     [SerializeField]
     private HealthBar healthBar;
+
+    public static Player _instance;
+
     #endregion
 
     #region Unity Callback Functions
     private void Awake()
     {
+        if (_instance != null)
+            Destroy(gameObject);
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, "wIdle");
         MoveState = new PlayerMoveState(this, StateMachine, "wMove");
-    }
-
-    private void Start()
-    {
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
@@ -78,12 +83,11 @@ public class Player : MonoBehaviour, IDataPersistence
 
     public void Run(Vector2 rawMovementInput)
     {
-
-        Flip(rawMovementInput.x);
+        Flip(rawMovementInput.x,rawMovementInput.y);
         if (InputHandler.isRunning)
-            speed = 10;
+            speed = 25;
         else 
-            speed = 5;
+            speed = 15;
 
         Vector2 velocity = RB.velocity;
         velocity.x = rawMovementInput.x * speed;
@@ -123,18 +127,16 @@ public class Player : MonoBehaviour, IDataPersistence
 
     }
 
-    public void Flip(float xInput)
+    public void Flip(float xInput, float yInput)
     {
-        if (xInput < 0)
+        if (xInput <= 0)
         {
-            this.gameObject.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            IsFacingRight = false;
+            this.gameObject.transform.eulerAngles = new Vector3(gameObject.transform.rotation.x, 180f, 0f);
 
         }
         else if (xInput > 0)
         {
-            this.gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            IsFacingRight = true;
+            this.gameObject.transform.eulerAngles = new Vector3(gameObject.transform.rotation.x, 0f, 0f);
         }
     }
 

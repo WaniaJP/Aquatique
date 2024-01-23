@@ -19,6 +19,8 @@ public class Parallax : MonoBehaviour
     private float parallaxFactor => Mathf.Abs(DistanceFromSubject) / ClippingPlane;
     private void Start()
     {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        subject = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
         _startPosition = transform.position;
         _startZ = transform.position.z;
     }
