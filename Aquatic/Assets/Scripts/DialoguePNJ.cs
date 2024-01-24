@@ -11,7 +11,7 @@ public class DialoguePNJ : MonoBehaviour
     public UnityEvent InteractAction;
     private string[][] dialogueMemePale = {
         new string[] { "Bonjour jeune homme, vous ne semblez pas venir d’ici…Je me trompe ? ", 
-            "Huuum, c’est bien ce qui me semblait. D’où venez-vous ?",
+            "Huuum, c’est bien ce qu'il me semblait. D’où venez-vous ?",
             "De la surface ? Un humain ? Voilà qui est bien étrange…",
             "Regagnez la surface vous dîtes ? Huuum… Je ne sais pas comment faire.",
             "Vous devriez aller voir mon mari, Pépé Pale, il pourra sûrement vous aider.",
