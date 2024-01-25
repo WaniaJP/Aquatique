@@ -1872,7 +1872,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -1116581329, guid: 8d3a95d4e248a8147a28fb6bd01a0e15, type: 3}
       - {fileID: -1391632824, guid: 8d3a95d4e248a8147a28fb6bd01a0e15, type: 3}
-      m_AnimationSpeed: 0.4
+      m_AnimationSpeed: 0.40000004
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -4203,7 +4203,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 6.000206, y: 8.644066}
+  m_Offset: {x: 8.680021, y: 8.644066}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4214,7 +4214,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 104.75322, y: 99.52507}
+  m_Size: {x: 99.393585, y: 99.52507}
   m_EdgeRadius: 0
 --- !u!66 &1495533519
 CompositeCollider2D:
@@ -4257,9 +4257,9 @@ CompositeCollider2D:
     m_ColliderPaths:
     - - X: 583768128
         Y: 584065984
-      - X: -463764032
+      - X: -410167680
         Y: 584065984
-      - X: -463764032
+      - X: -410167680
         Y: -411184704
       - X: 583768128
         Y: -411184704
@@ -4267,8 +4267,8 @@ CompositeCollider2D:
     m_Paths:
     - - {x: 58.37678, y: -41.11847}
       - {x: 58.37678, y: 58.4066}
-      - {x: -46.376404, y: 58.406567}
-      - {x: -46.376373, y: -41.11847}
+      - {x: -41.01677, y: 58.406567}
+      - {x: -41.01674, y: -41.11847}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
