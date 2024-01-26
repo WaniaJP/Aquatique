@@ -8,8 +8,6 @@ public class Timer : MonoBehaviour
 {
 
     private Player player;
-    [Header("Component")]
-    public TextMeshProUGUI timerText;
 
     [Header("Timer Settings")]
     public float currentTime;
@@ -49,6 +47,5 @@ public class Timer : MonoBehaviour
 
     private void SetTimerText()
     {
-        timerText.text = currentTime.ToString("0.0");
     }
 }
