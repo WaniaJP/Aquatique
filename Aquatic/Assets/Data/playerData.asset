@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ca48738a7a0264884c833183f68271, type: 3}
   m_Name: playerData
   m_EditorClassIdentifier: 
-  movementVelocity: 25.81
-  sprintSpeed: 10.59
+  movementVelocity: 60.9
+  sprintSpeed: 16
   jumpVelocity: 15
   dashCooldown: 0.5
   maxHoldTime: 1
@@ -26,3 +26,11 @@ MonoBehaviour:
   crouchMovementVelocity: 5
   crouchColliderHeight: 0.8
   standColliderHeight: 1.6
+  idleOffsetX: -0.1
+  idleOffsetY: -1.15
+  idleSizeX: 3
+  idleSizeY: 6.7
+  moveOffsetX: -0.5
+  moveOffsetY: 0
+  moveSizeX: 6.7
+  moveSizeY: 1.8
