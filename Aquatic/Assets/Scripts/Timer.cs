@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+
+    private Player player;
     [Header("Component")]
     public TextMeshProUGUI timerText;
 
@@ -12,14 +15,13 @@ public class Timer : MonoBehaviour
     public float currentTime;
 
     [Header("Limits Settings")]
-    public float timerLimit;
-
-    private DataPersistenceManager dataPersistenceManager;
+    public float timerLimitHeal;
+    public float timerLimitDamageAbovePollutionLimit;
 
     // Start is called before the first frame update
     void Start()
     {
-        dataPersistenceManager = FindObjectOfType<DataPersistenceManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -27,12 +29,20 @@ public class Timer : MonoBehaviour
     {
         currentTime += Time.deltaTime;
 
-        if(currentTime >= timerLimit)
+        if (currentTime >= timerLimitHeal && !player.isAboveLimit)
         {
             currentTime = 0;
             SetTimerText();
             //enabled = false;
-            dataPersistenceManager.SaveGame();
+            player.setHealth(-2f);
+
+        }
+
+        if (currentTime >= timerLimitDamageAbovePollutionLimit && player.isAboveLimit)
+        {
+            currentTime = 0;
+            SetTimerText();
+            player.setHealth(10f);
         }
         SetTimerText();
     }

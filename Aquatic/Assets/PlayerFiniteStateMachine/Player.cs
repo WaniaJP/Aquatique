@@ -14,6 +14,8 @@ public class Player : MonoBehaviour, IDataPersistence
 
     [SerializeField]
     private PlayerData playerData;
+
+    public bool isAboveLimit;
     #endregion
 
     #region Components

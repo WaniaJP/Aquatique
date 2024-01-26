@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -8,31 +11,22 @@ public class HealthBar : MonoBehaviour
     private Volume healthVolume;
     private Vignette healthVignette;
     public float health, maxHealth, healthVignetteIntensity, maxIntensity;
-    public static HealthBar _instance;
 
-
-    void Awake()
+    void Start()
     {
-        if (_instance != null)
-            Destroy(gameObject);
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
         healthVolume = GetComponent<Volume>();
         healthVolume.profile.TryGet(out healthVignette);
         healthVignetteIntensity = 0f;
         healthVignette.intensity.value = healthVignetteIntensity;
-
     }
 
-    public void setMaxHealth(float maxHealthValue) {
+    public void setMaxHealth(float maxHealthValue)
+    {
         maxHealth = maxHealthValue;
         maxIntensity = 0.5f;
     }
-    public void setHealth (float healthValue) {
+    public void setHealth(float healthValue)
+    {
         health = healthValue;
         healthVignette.intensity.value = ((health * maxIntensity) / maxHealth);
     }
