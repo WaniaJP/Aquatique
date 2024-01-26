@@ -50,7 +50,7 @@ public class Defi_Cache_Cache : MonoBehaviour
     }
 
     public bool rechercherJoueur() {
-        player.bloquerCachette = true;
+        /*player.bloquerCachette = true;
         if (!player.estCache) {
             cacheCachePerdu = true;
             player.bloquerCachette = false;
@@ -78,7 +78,9 @@ public class Defi_Cache_Cache : MonoBehaviour
             cacheCacheActif = false;
             currentTime = 0;
             return true;
-        }
+        }*/
+
+        return true;
     }
 
     private void Decompter() {

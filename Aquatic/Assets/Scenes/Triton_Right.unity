@@ -3485,7 +3485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5703195085745417839, guid: f27be4493e7b8c442aad77d13233e3db, type: 3}
       propertyPath: orthographic size
-      value: 8.3125
+      value: 11.25
       objectReference: {fileID: 0}
     - target: {fileID: 6581549072924774971, guid: f27be4493e7b8c442aad77d13233e3db, type: 3}
       propertyPath: m_Name
@@ -3561,7 +3561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8788249356004826209, guid: f27be4493e7b8c442aad77d13233e3db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.43163
+      value: -14.400379
       objectReference: {fileID: 0}
     - target: {fileID: 8788249356004826209, guid: f27be4493e7b8c442aad77d13233e3db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4436,8 +4436,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1725609481
-BoxCollider2D:
+--- !u!60 &1725609481
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4478,9 +4478,74 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.4375, y: -8.8125}
+      - {x: 3.625, y: -7.9375}
+      - {x: 4.1875, y: -7.4375}
+      - {x: 4.375, y: -6.75}
+      - {x: 4.375, y: -5.75}
+      - {x: 4.5625, y: -5}
+      - {x: 5.5, y: -4.1875}
+      - {x: 5.9375, y: -3.375}
+      - {x: 6.125, y: -2}
+      - {x: 6.125, y: -0.9375}
+      - {x: 6.5, y: -0.8125}
+      - {x: 7.5625, y: 0.25}
+      - {x: 8.375, y: 1.3125}
+      - {x: 8.9375, y: 2.625}
+      - {x: 9.25, y: 3.6875}
+      - {x: 9.25, y: 7.125}
+      - {x: 8.75, y: 8.375}
+      - {x: 6.9375, y: 10.25}
+      - {x: 6.625, y: 10.3125}
+      - {x: 5.25, y: 10.3125}
+      - {x: 4.25, y: 10.25}
+      - {x: -4, y: 10.25}
+      - {x: -4.0625, y: 10.3125}
+      - {x: -4.6875, y: 10.5}
+      - {x: -4.3125, y: 11.0625}
+      - {x: -5.125, y: 11.5625}
+      - {x: -6.875, y: 12.4375}
+      - {x: -7.3125, y: 12.4375}
+      - {x: -7.6875, y: 12.375}
+      - {x: -8.375, y: 11.875}
+      - {x: -9.5, y: 10.4375}
+      - {x: -10.0625, y: 9.1875}
+      - {x: -10.25, y: 8.375}
+      - {x: -10.25, y: 6.5625}
+      - {x: -10.125, y: 5.4375}
+      - {x: -9.875, y: 4.125}
+      - {x: -9.25, y: 2.8125}
+      - {x: -8.9375, y: 1.9375}
+      - {x: -8.0625, y: 1.125}
+      - {x: -6.4375, y: -0.375}
+      - {x: -6.5, y: -0.5625}
+      - {x: -5.8125, y: -1.0625}
+      - {x: -5.9375, y: -1.3125}
+      - {x: -6.125, y: -2.5}
+      - {x: -5.8125, y: -3.1875}
+      - {x: -5, y: -3.75}
+      - {x: -4.3125, y: -3.9375}
+      - {x: -4.1875, y: -5.5625}
+      - {x: -3.4375, y: -6.3125}
+      - {x: -3.1875, y: -6.3125}
+      - {x: -3.125, y: -7.875}
+      - {x: -2.5, y: -8.6875}
+      - {x: -2.1875, y: -9.1875}
+      - {x: -2.125, y: -10.25}
+      - {x: -1.75, y: -10.625}
+      - {x: -1.1875, y: -10.875}
+      - {x: -1.0625, y: -11.8125}
+      - {x: -0.4375, y: -12.5}
+      - {x: 0, y: -13.4375}
+      - {x: 0.25, y: -13.875}
+      - {x: 0.9375, y: -13.875}
+      - {x: 1.3125, y: -13.8125}
+      - {x: 1.6875, y: -12.625}
+      - {x: 2.5, y: -11.625}
+      - {x: 3.375, y: -9.75}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1753371327
 GameObject:
   m_ObjectHideFlags: 0

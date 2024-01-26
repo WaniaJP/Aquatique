@@ -60,7 +60,7 @@ public class Player : MonoBehaviour, IDataPersistence
         RB = GetComponent<Rigidbody2D>();
         StateMachine.Initialize(IdleState);
         //_cameraFollowObject = _cameraFollowGo.GetComponent<CameraFollowObject>();
-        //healthBar.setMaxHealth(maxHealth);
+        healthBar.setMaxHealth(maxHealth);
     }
 
     private void Update()
