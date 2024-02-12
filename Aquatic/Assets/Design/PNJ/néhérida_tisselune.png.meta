@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e61180330a854014cb41c565896580a4
+guid: e790a168ecf1062409aa38e2a6a0153b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "n\xE9h\xE9rida_tisselune 1_0"
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 64
+        width: 146
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c3b65e1b5dbcf47819e0a5dcaa6c51
+      internalID: -1338921084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "n\xE9h\xE9rida_tisselune 1_1"
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 66
+        width: 86
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e1be38f2a4be54baf3a886c8db6c3c
+      internalID: 883584505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "n\xE9h\xE9rida_tisselune 1_2"
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 79
+        width: 136
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b814c7ac04b14764582f8c2df404fc51
+      internalID: 1761992065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +182,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "n\xE9h\xE9rida_tisselune 1_0": -1338921084
+      "n\xE9h\xE9rida_tisselune 1_1": 883584505
+      "n\xE9h\xE9rida_tisselune 1_2": 1761992065
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

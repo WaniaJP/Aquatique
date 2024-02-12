@@ -125,7 +125,7 @@ public class DialoguePNJ : MonoBehaviour
     };
     private string[][] dialogueCalypso = {
         new string[] { "Ne me parle pas étranger !",
-            "A moins que tu ais de bonne raisons de venir me déranger ?",
+            "A moins que tu n'aies de bonnes raisons de venir me déranger ?",
             "Hmm... c'est bien ce que je pensais"
         },
         new string[] { "Qu’est ce que tu regardes créature ?",
