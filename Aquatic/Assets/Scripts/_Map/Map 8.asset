@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add4957bd6326a946b799aeb29042e54, type: 3}
+  m_Name: Map 8
+  m_EditorClassIdentifier: 
+  path: Assets/Scenes/Grotte_Enchanteresse_haut.unity
+  visual: {fileID: 21300000, guid: 1ec3594bae6d49b468cd2ca07d9be004, type: 3}

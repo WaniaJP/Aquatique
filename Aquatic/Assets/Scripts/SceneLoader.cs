@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using UnityEngine;
 
 public class SceneLoader : MonoBehaviour
@@ -6,6 +7,12 @@ public class SceneLoader : MonoBehaviour
     public GameObject playerObject;
     public static SceneLoader _instance;
     private string lastTrigger;
+
+
+    //Action
+    public static event Action OnLevelLoaded;
+
+
 
     private void Awake()
     {
@@ -21,10 +28,12 @@ public class SceneLoader : MonoBehaviour
     {
        lastTrigger = triggerName;
        Application.LoadLevel(levelToLoad);
+
     }
 
     public void OnLevelWasLoaded()
     {
+
         ExitTrigger[] allExits = FindObjectsOfType<ExitTrigger>();
         foreach (ExitTrigger exit in allExits)
         {
@@ -37,5 +46,8 @@ public class SceneLoader : MonoBehaviour
         }
         CinemachineVirtualCamera camera = GameObject.Find("CenterCamera").GetComponent<CinemachineVirtualCamera>();
         camera.Follow = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
+
+
+        OnLevelLoaded?.Invoke();
     }
 }
