@@ -11,4 +11,5 @@ public class MapItem : ScriptableObject
 
     [ScenePath] public string path;
     public Sprite visual;
+    public Sprite active;
 }

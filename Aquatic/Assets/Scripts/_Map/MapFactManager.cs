@@ -4,9 +4,9 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class TestFact : MonoBehaviour
+public class MapFactManager : MonoBehaviour
 {
-    public static TestFact instance;
+    public static MapFactManager instance;
     public Fact[] facts;
     public ModificationFact[] MapsFacts;
 
@@ -29,6 +29,11 @@ public class TestFact : MonoBehaviour
         {
             MapsFacts = new ModificationFact[0];
         }
+    }
+
+    private void Start()
+    {
+        UpdateMapFact();
     }
 
     public Fact GetFactByName(string name)

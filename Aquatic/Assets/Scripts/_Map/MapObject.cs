@@ -6,32 +6,23 @@ using UnityEngine.UI;
 
 public class MapObject : MonoBehaviour
 {
-
-    public bool WasDiscovered;
-    public MapItem map;
-
-    public Image image;
-
     [SerializeField]
-
+    private MapItem map;
+    [SerializeField]
     private CriteriaFact itemCrit;
-
     [SerializeField]
-    private Fact item;
+    private Image image;
 
-    private void Start()
-    {
-        item = TestFact.instance.GetFactByName(map.path);
-        itemCrit = new CriteriaFact(item, CriteriaFact.OperationType.GreaterEqual, 1);
+
+
+    private void Start() { 
+        itemCrit = new CriteriaFact(MapFactManager.instance.GetFactByName(map.path), CriteriaFact.OperationType.GreaterEqual, 1);
         itemCrit.OnMeetCrit += Meet;
     }
 
     private void Meet()
     {
-        Debug.LogWarning("Here with : " + map.path);
-        WasDiscovered = true;
         image.sprite = map.visual;
-
         image.enabled = true;
     }
 }
