@@ -619,7 +619,7 @@ Camera:
   far clip plane: 1000
   field of view: 143.8
   orthographic: 1
-  orthographic size: 8.15625
+  orthographic size: 10.078125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -891,6 +891,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &662432554
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820909418688045105, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126711308324624832, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
+      propertyPath: m_Name
+      value: DataPersistenceManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88a56de2af23fce4d925729553651fdf, type: 3}
 --- !u!1 &700278637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,9 +1636,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 97ee086e618d50c4dbefcf4cd7135726, type: 2}
-  healingMaterial: {fileID: 0}
-  basicMaterial: {fileID: 0}
+  jumpPower: 5
+  groundCheck: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _cameraFollowGo: {fileID: 0}
+  health: 0
+  maxHealth: 0
+  healthBar: {fileID: 0}
 --- !u!95 &1217701230
 Animator:
   serializedVersion: 5
@@ -3270,6 +3333,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 662432554}
   - {fileID: 990234201}
   - {fileID: 619394802}
   - {fileID: 1217701225}

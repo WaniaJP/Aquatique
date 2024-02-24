@@ -40,6 +40,7 @@ public class FileDataHandler
                 }
                 //Deserialization de Json a C#
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+                Debug.Log("FileDataHandler : Load triggered, receiving data (loadedData.playerPosition) :  " + loadedData.playerPosition);
             }
             catch (Exception e)
             {
@@ -52,7 +53,7 @@ public class FileDataHandler
     public void Save(GameData data)
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
-
+        Debug.Log("FileDataHandler : Save triggered, receiving data (data.playerPosition) :  " + data.playerPosition);
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -71,6 +72,7 @@ public class FileDataHandler
                     writer.Write(dataToStore);
                 }
             }
+            Debug.Log("FileDataHandler : Save triggered2, receiving data (data.playerPosition) :  " + dataToStore);
         }
         catch(Exception e)
         {

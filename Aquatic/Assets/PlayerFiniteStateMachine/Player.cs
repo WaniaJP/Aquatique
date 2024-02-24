@@ -56,7 +56,7 @@ public class Player : MonoBehaviour, IDataPersistence
         RB = GetComponent<Rigidbody2D>();
         StateMachine.Initialize(IdleState);
         //_cameraFollowObject = _cameraFollowGo.GetComponent<CameraFollowObject>();
-        healthBar.setMaxHealth(maxHealth);
+        //healthBar.setMaxHealth(maxHealth);
     }
 
     private void Update()
@@ -139,7 +139,9 @@ public class Player : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.transform.position = data.playerPosition;
+        Debug.Log("Player Script, LoadData triggered, data.playerPosition : " + data.playerPosition.ToString());
+        this.gameObject.transform.position = data.playerPosition;
+        Debug.Log("Player Script, LoadData triggered, transform.position : " + transform.position.ToString());
     }
 
     public void SaveData(GameData data)
