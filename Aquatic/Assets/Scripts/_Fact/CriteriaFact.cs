@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public class CriteriaFact 
 {
+    public int id;
     [SerializeField]
     private Fact item;
     [SerializeField]

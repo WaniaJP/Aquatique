@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MapFactManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class MapFactManager : MonoBehaviour
         Debug.Log("Here");
         if (instance == null)
         {
+            SaveData.LoadFromJson();
+            facts = SaveData.bd.factMap;
             instance = this;
             SceneLoader.OnLevelLoaded += UpdateMapFact;
             Debug.Log("Here2");
@@ -56,6 +59,15 @@ public class MapFactManager : MonoBehaviour
             ModificationFact mod = new (fact, ModificationFact.OperationType.Add);
             MapsFacts = MapsFacts.Append(mod).ToArray();
             Debug.LogWarning("Nouvelle modification de fait ajoutée pour : " + name); // Message de débogage
+
+            SaveData.bd.factMap = facts;
+            SaveData.SaveToJson();
+
+        }
+        else
+        {
+            ModificationFact mod = new(fact, ModificationFact.OperationType.Add);
+            MapsFacts = MapsFacts.Append(mod).ToArray();
         }
 
         return fact;

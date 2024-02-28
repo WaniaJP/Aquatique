@@ -5,10 +5,9 @@ using System.Collections.Generic;
 [Serializable]
 public class Fact
 {
-    private string id;
+    public string id;
     public string name;
     public int value;
-
 
     public event Action OnFactChanged;
 
@@ -24,10 +23,6 @@ public class Fact
         this.id = id;
         this.name = name;
         this.value = 0;
-    }
-
-    public Action getEvent(){
-        return OnFactChanged;
     }
 
     public void Add()

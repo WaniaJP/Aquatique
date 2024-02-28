@@ -3630,7 +3630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BoundingShape2D: {fileID: 815116651}
   m_Damping: 0.5
-  m_MaxWindowSize: -1
+  m_MaxWindowSize: 0
 --- !u!114 &1036410552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4374,6 +4374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1112378091}
+  - component: {fileID: 1112378092}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -4396,6 +4397,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2022623053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1112378092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112378090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9042ca3b6f47e6947bdf5a94a28d5fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1187660430
 GameObject:
   m_ObjectHideFlags: 0
