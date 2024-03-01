@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class SaveData : MonoBehaviour
 {
@@ -24,9 +23,25 @@ public class SaveData : MonoBehaviour
     public static void LoadFromJson()
     {
         string filePath = Application.persistentDataPath + "/Facts.json";
-        string inventoryData = System.IO.File.ReadAllText(filePath);
 
-        bd = JsonUtility.FromJson<BD>(inventoryData);
+        try
+        {
+            string inventoryData = System.IO.File.ReadAllText(filePath);
+            bd = JsonUtility.FromJson<BD>(inventoryData);
+            Debug.Log("Chargement réussi");
+        }
+        catch (System.IO.FileNotFoundException)
+        {
+            // File not found, create a new database
+            bd = new BD();
+            Debug.LogWarning("Fichier non trouvé. Une nouvelle base de données a été créée.");
+            SaveToJson(); // Save the newly created database to the file
+        }
+        catch (Exception e)
+        {
+            // Handle other exceptions
+            Debug.LogError("Erreur de chargement : " + e.Message);
+        }
     }
 
     void Update()
