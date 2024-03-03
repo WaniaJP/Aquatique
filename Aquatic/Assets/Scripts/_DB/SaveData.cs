@@ -8,6 +8,10 @@ public class SaveData : MonoBehaviour
 {
 
     public static BD bd;
+
+    private void Awake()
+    {
+    }
     public static void SaveToJson()
     {
 
@@ -28,6 +32,7 @@ public class SaveData : MonoBehaviour
         {
             string inventoryData = System.IO.File.ReadAllText(filePath);
             bd = JsonUtility.FromJson<BD>(inventoryData);
+            Debug.LogWarning(bd.dialogueFacts.Length);
             Debug.Log("Chargement réussi");
         }
         catch (System.IO.FileNotFoundException)
@@ -56,6 +61,8 @@ public class BD
     public Fact[] factMap;
     public ModificationFact[] factMapMod;
 
+
+    public Speaker[] speakers;
     public DialogueFact[] dialogueFacts;
     public CriteriaFact[] criteriaFacts;
 

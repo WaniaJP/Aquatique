@@ -94,4 +94,11 @@ public class MapFactManager : MonoBehaviour
     {
         SceneLoader.OnLevelLoaded -= UpdateMapFact;
     }
+
+
+    private void OnApplicationQuit()
+    {
+        SaveData.bd.factMap = facts;
+        SaveData.SaveToJson();
+    }
 }

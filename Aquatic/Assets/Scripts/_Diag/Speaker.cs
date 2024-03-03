@@ -6,7 +6,6 @@ public class Speaker
 {
     public int id;
     public string name;
-    public int lastDialogue;
 
     public Speaker(int id, string name)
     {
@@ -25,14 +24,10 @@ public class Speaker
         return name;
     }
 
-    public int GetLastDialogue()
-    {
-        return lastDialogue;
-    }
 
     public Dialogue GetDialogue()
     {
-        DialogueFact tmp = SaveData.bd.dialogueFacts.Where(d => d.CouldBeDone() && d.speakerId == id)
+        DialogueFact tmp = DialogueFactManager.instance.dialogues.Where(d => d.CouldBeDone() && d.speakerId == id)
             .FirstOrDefault();
 
         if(tmp != null)

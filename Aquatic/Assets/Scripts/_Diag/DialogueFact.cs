@@ -1,5 +1,3 @@
-
-using JetBrains.Annotations;
 using System;
 using System.Linq;
 
@@ -26,11 +24,13 @@ public class DialogueFact : Fact
     public bool CouldBeDone()
     {
         CriteriaFact critere = SaveData.bd.criteriaFacts.FirstOrDefault(c => c.id == criteria);
-        return critere == null ? !done : critere.DoesItMeet() && !done;
+        return critere == null ? done : critere.DoesItMeet() && !done;
     }
 
     public void SetDone()
     {
         done = true;
     }
-}
+
+
+} 

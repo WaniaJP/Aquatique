@@ -25,7 +25,6 @@ public class TMP_Dialogue : MonoBehaviour
 
     [SerializeField]
     private PNJ Character;
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -36,10 +35,6 @@ public class TMP_Dialogue : MonoBehaviour
 
         textComponent.text = string.Empty;
         DialogueBox.SetActive(false);
-    }
-    void Start()
-    {
-        DialogueTag.text = nomPerso;
     }
 
     public  void Lancer()

@@ -16,7 +16,11 @@ public class MapObject : MonoBehaviour
 
 
     private void Start() { 
-        itemCrit = new CriteriaFact(MapFactManager.instance.GetFactByName(map.path), CriteriaFact.OperationType.GreaterEqual, 1);
+
+            itemCrit = new CriteriaFact(MapFactManager.instance.GetFactByName(map.path), CriteriaFact.OperationType.GreaterEqual, 1);
+
+        
+
         itemCrit.OnMeetCrit += Meet;
     }
 
